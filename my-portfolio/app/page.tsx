@@ -55,7 +55,7 @@ export default function Portfolio() {
 
       {/* Hero Section */}
       <section className="py-20 md:py-32 container mx-auto px-4">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl mx-auto text-center ">
           <motion.h1
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -72,13 +72,13 @@ export default function Portfolio() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-2xl md:text-3xl text-gray-400 mb-8"
           >
-            Full Stack Developer
+            Compututer Scientist from Vietnam
           </motion.h2>
           <motion.p
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="text-lg text-gray-300 mb-10 max-w-2xl"
+            className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto"
           >
             I build exceptional digital experiences that are fast, accessible, visually appealing, and responsive.
           </motion.p>
@@ -88,13 +88,13 @@ export default function Portfolio() {
             transition={{ duration: 0.7, delay: 0.6 }}
             className="flex flex-wrap gap-4"
           >
-            <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">View Projects</Button>
+            {/* <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">View Projects</Button>
             <Button
               variant="outline"
               className="border-emerald-500 text-emerald-500 hover:bg-emerald-500 hover:text-black"
             >
               Contact Me
-            </Button>
+            </Button> */}
           </motion.div>
         </div>
       </section>
@@ -113,8 +113,12 @@ export default function Portfolio() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <div className="w-64 h-64 rounded-full bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-500">
-                <span className="text-6xl">YN</span>
+              <div className="w-64 h-64 rounded-full bg-emerald-500/20 border-2 border-emerald-500 overflow-hidden flex items-center justify-center text-emerald-500">
+                <img
+                  src = "/Dat.jpeg"
+                  alt= "Dat Bui"
+                  className="w-full h-full object-cover"  
+                />
               </div>
             </motion.div>
             <div className="w-full md:w-2/3">
@@ -125,11 +129,14 @@ export default function Portfolio() {
                 viewport={{ once: true }}
                 className="text-gray-300 mb-6"
               >
-                I'm a passionate Full Stack Developer with expertise in building modern web applications. With a strong
-                foundation in both frontend and backend technologies, I create seamless user experiences that are both
-                functional and visually appealing.
+                I'm an upcoming third-year student at the University of Nebraska–Lincoln, pursuing a bachelor's degree in Computer Science with a minor in Mathematics.
+                 I grew up in Bien Hoa, Vietnam, and have lived in Lincoln for 4 years. 
+                I have a diverse work background, starting in food customer service, teaching assistant, and transitioning into software development.
+                 Over the past 2 years, I’ve been taking computer science classes and gained IT experience through an internship. 
+                 I’m passionate about software engineering and eager to continue gaining hands-on experience across different areas of computing. 
+                 I also want to make a difference by supporting the world of technology. After graduation, I hope to build close connections with the businesses I work with and find a permanent career that truly fits me.
               </motion.p>
-              <motion.p
+              {/* <motion.p
                 initial={{ x: 50, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -149,7 +156,7 @@ export default function Portfolio() {
               >
                 When I'm not coding, you can find me exploring new hiking trails, reading tech blogs, or experimenting
                 with new recipes in the kitchen.
-              </motion.p>
+              </motion.p> */}
             </div>
           </div>
         </div>
@@ -170,29 +177,80 @@ export default function Portfolio() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(16, 185, 129, 0.1)" }}
-                className="bg-zinc-900 p-6 rounded-lg border border-emerald-900 hover:border-emerald-500 transition-colors"
+                className="bg-zinc-900 p-6 rounded-lg border border-emerald-900 hover:border-emerald-500 transition-colors text-center"
               >
-                <h3 className="text-xl font-semibold mb-3 text-emerald-400">{skill.category}</h3>
-                <ul className="text-gray-300 space-y-2">
-                  {skill.items.map((item, idx) => (
-                    <motion.li
-                      key={idx}
-                      initial={{ x: -10, opacity: 0 }}
-                      whileInView={{ x: 0, opacity: 1 }}
-                      transition={{ duration: 0.3, delay: 0.3 + idx * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-center"
-                    >
-                      <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
-                      {item}
-                    </motion.li>
-                  ))}
-                </ul>
+                <motion.span
+                  initial={{ x: -10, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="text-gray-300 text-lg"
+                >
+                  {skill}
+                </motion.span>
               </motion.div>
             ))}
           </div>
         </div>
       </AnimatedSection>
+
+      {/* Work Experience Section */}
+      <AnimatedSection id="work-experience" className="py-20 bg-black">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-12 text-center">
+            <span className="text-emerald-500">My</span> Work Experience
+          </h2>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-emerald-500 h-full"></div>
+
+            <div className="flex flex-col space-y-20">
+              {workExperience.map((experience, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  className={`relative flex items-start ${
+                    index % 2 === 0 ? "flex-row" : "flex-row-reverse"
+                  }`}
+                >
+                  {/* Timeline Dot */}
+                  <div className="w-6 h-6 bg-emerald-500 rounded-full absolute left-1/2 transform -translate-x-1/2 top-1/2"></div>
+
+                  {/* Work Experience Details */}
+                  <div
+                    className={`${
+                      index % 2 === 0 ? "pl-16 pr-4" : "pr-16 pl-4"
+                    } bg-zinc-900 rounded-lg p-8 shadow-lg hover:shadow-xl transition-all duration-300 max-w-md w-full`}
+                  >
+                    <h3 className="text-xl font-semibold text-emerald-400">{experience.position}</h3>
+                    <p className="text-gray-300">{experience.company}</p>
+                    <p className="text-gray-500 text-sm mb-4">{experience.dates}</p>
+                    <ul className="space-y-4 text-gray-300 list-none pl-6">
+                      {experience.responsibilities.map((task, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-center space-x-3"
+                        >
+                          {/* Consistent Bullet Point */}
+                          <span className="w-3 h-3 bg-emerald-500 rounded-full"></span>
+                          <span>{task}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+
+
+
 
       {/* Projects Section */}
       <AnimatedSection id="projects" className="py-20 bg-zinc-900">
@@ -437,31 +495,81 @@ function AnimatedSection({ children, id, className }: { children: React.ReactNod
 
 // Sample data
 const skills = [
+  "JavaScript",
+  "React",
+  "Node.js",
+  "Python",
+  "Java",
+  "C",
+  "HTML",
+  "CSS",
+  "MySQL",
+  "Git",
+  "Docker",
+  "Visual Basic",
+  "Assembly",
+  "Tailwind CSS",
+  "MVC",
+  ".NET",
+  "API",
+  "TypeScript"
+];
+
+const workExperience = [
+  
   {
-    category: "Frontend",
-    items: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    position: "IT Support Intern",
+    company: "GlobalTech",
+    dates: "January 2024 - May 2024",
+    responsibilities: [
+      "Assisted in troubleshooting hardware and software issues",
+      "Provided technical support to employees",
+      "Documented and tracked user issues"
+    ]
   },
   {
-    category: "Backend",
-    items: ["Node.js", "Express", "Python", "Django"],
+    position: "Learning Assistant",
+    company: "University of Nebraska-Lincoln - School of Computing",
+    dates: "Jan 2025 - Present",
+    responsibilities: [
+      "Provided individualized support to over 60 students through one-on-one sessions and online platforms (CampusWire), leveraging technical expertise and effective communication skills.",
+      "Evaluated and graded student assignments on CSE servers (Handin, Web-grader).",
+      "Oversaw computer lab sessions for 30+ students, offering guidance and fostering a productive learning environment"
+
+    ]
+  },
+
+  {
+    position: "Learning Consultant",
+    company: "University of Nebraska-Lincoln - College of Engineering",
+    dates: "Sep 2024 - Present",
+    responsibilities: [
+      "Assisted in • Provided effective tutoring and academic support in Calculus I, II, and III as part of the Nebraska Engineering Support and Tutoring (NEST) program",
+      "Collaborated with the Engineering Student Services team to enhance student success, leveraging in-depth knowledge of engineering courses",
+    ]
   },
   {
-    category: "Database",
-    items: ["MongoDB", "PostgreSQL", "Firebase", "Supabase"],
+    position: "Student Worker(Dinning Service)",
+    company: "University of Nebraska-Lincoln",
+    dates: "Sep 2023 - Present",
+    responsibilities: [
+      "Managed work areas effectively by following recipes and maintaining excellent customer service standards",
+      "Resolved operational challenges to ensure smooth dining hall functionality.",
+      "Collaborated with supervisors and managers to uphold dining hall quality through clear communication and attention to detail"
+    ]
   },
   {
-    category: "DevOps",
-    items: ["Git", "Docker", "AWS", "Vercel"],
-  },
-  {
-    category: "Design",
-    items: ["Figma", "Adobe XD", "UI/UX", "Responsive Design"],
-  },
-  {
-    category: "Other",
-    items: ["REST APIs", "GraphQL", "Testing", "Agile"],
-  },
-]
+    position: "Coding & Robotics Teacher Assistant",
+    company: "Educational Search",
+    dates: "May 2024 - June 2024",
+    responsibilities: [
+      "Assisted over 15 students in understanding and applying JavaScript coding and utilizing the Sphero robots app",
+      "Supported integrating JavaScript and Sphero Bolt technologies into curriculum activities, promoting interactive educational sessions.",
+    ]
+  }
+];
+
+
 
 const projects = [
   {
